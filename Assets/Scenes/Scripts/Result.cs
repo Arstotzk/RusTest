@@ -13,6 +13,7 @@ public class Result : MonoBehaviour
 
     public TMP_Text discription;
     public Image image;
+    public Coordinate coordinate;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,6 @@ public class Result : MonoBehaviour
 
         discription.text = variant.text;
         image.sprite = variant.sprite;
-
+        coordinate.SetCoordinate(rus, heroism);
     }
 }
