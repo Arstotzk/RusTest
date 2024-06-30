@@ -13,6 +13,12 @@ public class MainMenu : MonoBehaviour
 
     public QuestionTest questionTest;
     public Result result;
+    public Settings settings;
+
+    public void Start()
+    {
+        settings.SetMusicValue();
+    }
     public void StartTest()
     {
         mainMenu.SetActive(false);
