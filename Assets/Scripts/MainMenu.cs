@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     public QuestionTest questionTest;
     public Result result;
     public Settings settings;
-
+    public SetOpenResults setOpenResults;
     public void Start()
     {
         settings.SetMusicValue();
@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
     public void ShowResults()
     {
         //ѕроверка что хоть один раз тест прошли
+        setOpenResults.SetResults();
         mainMenu.SetActive(false);
         resultMenu.SetActive(true);
     }
@@ -62,6 +63,12 @@ public class MainMenu : MonoBehaviour
     {
         result.SetVariant();
         preResult.SetActive(false);
+        resultUI.SetActive(true);
+    }
+    public void ShowResult(int variantId)
+    {
+        result.SetVariant(variantId);
+        resultMenu.SetActive(false);
         resultUI.SetActive(true);
     }
 }

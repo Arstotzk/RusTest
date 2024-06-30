@@ -14,6 +14,7 @@ public class Result : MonoBehaviour
     public TMP_Text discription;
     public Image image;
     public Coordinate coordinate;
+    public Saves saves;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,19 @@ public class Result : MonoBehaviour
 
         discription.text = variant.text;
         image.sprite = variant.sprite;
+        coordinate.coordinateDot.SetActive(true);
         coordinate.SetCoordinate(rus, heroism);
+        saves.OpenResult(variant.id);
+    }
+    public void SetVariant(int variantId)
+    {
+        var variant = variants.Where(v => v.id == variantId).FirstOrDefault();
+        //На случай если косячно заполнены данные, чтобы дальше не поломалось
+        if (variant == null)
+            variant = variants.Where(v => v.id == 7).FirstOrDefault();
+
+        discription.text = variant.text;
+        image.sprite = variant.sprite;
+        coordinate.coordinateDot.SetActive(false);
     }
 }
