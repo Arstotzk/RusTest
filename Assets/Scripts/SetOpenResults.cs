@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class SetOpenResults : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SetOpenResults : MonoBehaviour
         var num = 0;
         foreach (var buttonCover in buttonsCover)
         {
-            if (saves.openResults.results[num])
+            if (YandexGame.savesData.openVariants[num])
             {
                 buttonCover.SetActive(false);
             }

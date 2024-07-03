@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using YG;
 
 public class Settings : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class Settings : MonoBehaviour
     }
     public void SetMusicValue()
     {
-        var value = PlayerPrefs.GetFloat("Music", 0.8f);
+        //var value = PlayerPrefs.GetFloat("Music", 0.8f);
+        var value = YandexGame.savesData.musicVolume;
         audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
         slider.value = value;
     }
@@ -31,8 +33,14 @@ public class Settings : MonoBehaviour
         if (value == 0)
             value = 0.0001f;
         audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
-        float test = 0f;
-        audioMixer.GetFloat("Music", out test);
-        PlayerPrefs.SetFloat("Music", value);
+    }
+    public void SaveMusicValue()
+    {
+        var value = slider.value;
+        if (value == 0)
+            value = 0.0001f;
+
+        YandexGame.savesData.musicVolume = value;
+        YandexGame.SaveProgress();
     }
 }

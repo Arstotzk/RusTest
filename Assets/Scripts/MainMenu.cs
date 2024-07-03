@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class MainMenu : MonoBehaviour
 {
@@ -52,12 +53,14 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        settings.SaveMusicValue();
     }
     public void ShowPreResult()
     {
         questionMenu.SetActive(false);
         preResult.SetActive(true);
         //Реклама
+        YandexGame.FullscreenShow();
     }
     public void ShowResult()
     {
