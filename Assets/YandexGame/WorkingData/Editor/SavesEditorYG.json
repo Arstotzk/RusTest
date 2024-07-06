@@ -1,9 +1,9 @@
 {
-    "idSave": 14,
+    "idSave": 34,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "musicVolume": 0.29568928480148318,
+    "musicVolume": 0.17279978096485139,
     "openVariants": [
         false,
         false,
@@ -18,9 +18,9 @@
         false,
         true,
         false,
+        true,
         false,
-        false,
-        false,
+        true,
         false
     ]
 }

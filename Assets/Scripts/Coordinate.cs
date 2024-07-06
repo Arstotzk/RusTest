@@ -20,7 +20,8 @@ public class Coordinate : MonoBehaviour
 
     public void SetCoordinate(int rus, int heroism)
     {
-        var newPosition = new Vector3(rus * diff, heroism * diff, 0);
+        float diffScreen = (Screen.width / 1920f) * diff;
+        var newPosition = new Vector3(rus * diffScreen, heroism * diffScreen, 0);
         coordinateDot.transform.localPosition = newPosition;
     }
 }
