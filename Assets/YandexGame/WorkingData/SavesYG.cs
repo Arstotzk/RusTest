@@ -12,7 +12,7 @@ namespace YG
 
         // Ваши сохранения
 
-        public float musicVolume = 0.8f;
+        public float musicVolume = 0.1f;
         public bool[] openVariants = new bool[17]; 
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
