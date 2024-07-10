@@ -10,6 +10,7 @@ public class Result : MonoBehaviour
     public int rus = 0;
     public int heroism = 0;
     public List<Variant> variants;
+    public List<Variant> variantsKnow;
 
     public TMP_Text discription;
     public Image image;
@@ -37,6 +38,8 @@ public class Result : MonoBehaviour
         image.sprite = variant.sprite;
         coordinate.coordinateDot.SetActive(true);
         coordinate.SetCoordinate(rus, heroism);
+        coordinate.gameObject.SetActive(true);
+        image.gameObject.SetActive(true);
         saves.OpenResult(variant.id);
     }
     public void SetVariant(int variantId)
@@ -49,5 +52,15 @@ public class Result : MonoBehaviour
         discription.text = variant.text;
         image.sprite = variant.sprite;
         coordinate.coordinateDot.SetActive(false);
+        coordinate.gameObject.SetActive(true);
+        image.gameObject.SetActive(true);
+    }
+
+    public void SetVariantKnow()
+    {
+        var variantKnow = variantsKnow.Where(v => v.rusPoints.Contains(rus)).FirstOrDefault();
+        discription.text = variantKnow.text;
+        coordinate.gameObject.SetActive(false);
+        image.gameObject.SetActive(false);
     }
 }

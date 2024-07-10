@@ -11,11 +11,15 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject preResult;
     public GameObject resultUI;
+    public GameObject questionMenuKnow;
 
     public QuestionTest questionTest;
+    public QuestionTestKnow questionTestKnow;
     public Result result;
     public Settings settings;
     public SetOpenResults setOpenResults;
+
+    private bool isKnowTest = false;
     public void Start()
     {
         settings.SetMusicValue();
@@ -26,6 +30,16 @@ public class MainMenu : MonoBehaviour
         questionMenu.SetActive(true);
         //заполн€ем вопросы
         questionTest.StartTest();
+        isKnowTest = false;
+    }
+
+    public void StartTestKnow()
+    {
+        mainMenu.SetActive(false);
+        questionMenuKnow.SetActive(true);
+        //заполн€ем вопросы
+        questionTestKnow.StartTest();
+        isKnowTest = true;
     }
     public void EndTest()
     {
@@ -58,13 +72,17 @@ public class MainMenu : MonoBehaviour
     public void ShowPreResult()
     {
         questionMenu.SetActive(false);
+        questionMenuKnow.SetActive(false);
         preResult.SetActive(true);
         //–еклама
         YandexGame.FullscreenShow();
     }
     public void ShowResult()
     {
-        result.SetVariant();
+        if (isKnowTest)
+            result.SetVariantKnow();
+        else
+            result.SetVariant();
         preResult.SetActive(false);
         resultUI.SetActive(true);
     }

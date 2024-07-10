@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class QuestionTest : MonoBehaviour, IQuestionTest
+
+public class QuestionTestKnow : MonoBehaviour, IQuestionTest
 {
     public MainMenu mainMenu;
     public Result result;
-    public List<Question> questions;
-    public Question currentQuestion;
+    public List<QuestionKnow> questions;
+    public QuestionKnow currentQuestion;
     public int questionId = 0;
 
     public TMP_Text questionTextUI;
     public TMP_Text questionNumUI;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class QuestionTest : MonoBehaviour, IQuestionTest
     {
         
     }
-    public void StartTest() 
+    public void StartTest()
     {
         questionId = 0;
         currentQuestion = questions[questionId];
@@ -38,18 +38,9 @@ public class QuestionTest : MonoBehaviour, IQuestionTest
     {
         if (currentQuestion.isRus)
         {
-            if (!currentQuestion.isRevert)
-                result.rus += value;
-            else
-                result.rus -= value;
+            result.rus += value;
         }
-        else if (currentQuestion.isHeroism)
-        {
-            if (!currentQuestion.isRevert)
-                result.heroism += value;
-            else
-                result.heroism -= value;
-        }
+
         NextQuestion();
     }
 
